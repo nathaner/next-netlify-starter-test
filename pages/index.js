@@ -1,18 +1,23 @@
-export default function Home(props) {
-  return (
-    <>
-      {props.ssrWorking ? (
-        <div>
-          <img src="/check.png" height="80" />
-          <h2> Deployment Successful of Nextjs Application with SSR on Firebase. </h2>
-        </div>
-      ) : (
-        <h2>SSR not working</h2>
-      )}
-    </>
-  );
-}
+import Head from 'next/head'
+import Header from '@components/Header'
+import Footer from '@components/Footer'
 
-export async function getServerSideProps() {
-  return { props: { ssrWorking: true } };
+export default function Home() {
+  return (
+    <div className="container">
+      <Head>
+        <title>Next.js Starter!</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
+      <main>
+        <Header title="Welcome to my app!" />
+        <p className="description">
+          Get started by editing <code>pages/index.js</code>
+        </p>
+      </main>
+
+      <Footer />
+    </div>
+  )
 }
